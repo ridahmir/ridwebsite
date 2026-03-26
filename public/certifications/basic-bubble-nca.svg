@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f7f6f3"/>
+  <rect x="70" y="70" width="1060" height="760" rx="24" fill="#ffffff" stroke="#e4e2dc" stroke-width="4"/>
+  <text x="110" y="160" font-family="Georgia, serif" font-size="56" fill="#0d0d0d">Certificate</text>
+  <text x="110" y="220" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#6b6b6b" letter-spacing="4">NO CODE ALLIANCE</text>
+  <text x="110" y="320" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" fill="#0d0d0d">Basic Bubble Certification</text>
+  <text x="110" y="370" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="20" fill="#6b6b6b">Bubble fundamentals & best practices</text>
+  <rect x="110" y="430" width="980" height="2" fill="#e4e2dc"/>
+  <text x="110" y="510" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#6b6b6b">
+    Replace this placeholder with your real certificate image anytime.
+  </text>
+  <text x="110" y="560" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#6b6b6b">
+    Path: public/certifications/basic-bubble-nca.svg
+  </text>
+  <rect x="920" y="180" width="160" height="160" rx="28" fill="#c45c3e" opacity="0.12"/>
+  <path d="M970 260h60" stroke="#c45c3e" stroke-width="6" opacity="0.45"/>
+  <path d="M970 230h60" stroke="#c45c3e" stroke-width="6" opacity="0.32"/>
+  <path d="M970 290h60" stroke="#c45c3e" stroke-width="6" opacity="0.32"/>
+</svg>
