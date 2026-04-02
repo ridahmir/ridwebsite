@@ -5,24 +5,29 @@ type Certification = {
   issuer: string;
   note?: string;
   imageSrc: string;
+  credentialUrl: string;
 };
 
 const certifications: Certification[] = [
   {
     title: "Bubble Certificate",
     issuer: "Million Labs",
-    imageSrc: "/certifications/bubble-million-labs.svg",
+    imageSrc: "/certifications/million-labs-bubble-certificate.png",
+    credentialUrl:
+      "https://c85ec4c2721d0d1fda7c4d73a2dd9307.cdn.bubble.io/f1749649446022x767181338860449800/kIRBgKpCCeMmSrdSleLn.pdf",
   },
   {
     title: "EF SET English Certificate",
     issuer: "EF SET",
-    note: "78/100 (C2 Proficient)",
-    imageSrc: "/certifications/efset-78-c2.svg",
+    imageSrc: "/certifications/efset-certificate.png",
+    credentialUrl: "https://cert.efset.org/8RiqmP",
   },
   {
     title: "Basic Bubble Certification",
     issuer: "No Code Alliance",
-    imageSrc: "/certifications/basic-bubble-nca.svg",
+    imageSrc: "/certifications/no-code-alliance-bubble-basics.png",
+    credentialUrl:
+      "https://nocodealliance.org/next-create-certification/1725260099014x978589073524129800",
   },
 ];
 
@@ -55,8 +60,9 @@ export const CertificationsSection = () => {
                   alt={`${c.title} certificate`}
                   fill
                   className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width:768px) 100vw, 33vw"
-                  priority={false}
+                  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 380px"
+                  loading="lazy"
+                  quality={75}
                 />
               </div>
               <div className="p-6">
@@ -67,6 +73,17 @@ export const CertificationsSection = () => {
                 {c.note ? (
                   <p className="mt-3 text-sm text-muted">{c.note}</p>
                 ) : null}
+
+                <a
+                  href={c.credentialUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  tabIndex={0}
+                  aria-label={`View credentials for ${c.title}`}
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-line bg-paper px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink transition hover:-translate-y-0.5 hover:bg-white hover:shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                >
+                  View credentials
+                </a>
               </div>
             </article>
           ))}

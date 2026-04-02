@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/HeroSection";
+import { LinkedInSocialProofSection } from "@/components/LinkedInSocialProofSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ToolsSection } from "@/components/ToolsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
@@ -19,6 +20,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ServicesSection />
+      <LinkedInSocialProofSection />
       <ToolsSection />
       <ProjectsSection
         projects={preview}

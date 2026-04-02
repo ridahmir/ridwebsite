@@ -53,6 +53,8 @@ export const TestimonialsSection = ({
                         fill
                         className="object-cover"
                         sizes="48px"
+                        loading="lazy"
+                        quality={70}
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-xs font-semibold text-muted">

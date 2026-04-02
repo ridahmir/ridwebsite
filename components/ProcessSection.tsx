@@ -4,7 +4,7 @@ export const ProcessSection = () => {
   const { process } = servicesContent;
 
   return (
-    <section className="border-b border-line bg-paper px-5 py-20 md:px-8 md:py-24">
+    <section className="border-b border-line bg-white px-5 py-20 md:px-8 md:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl motion-safe:animate-fade-up">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
@@ -15,11 +15,11 @@ export const ProcessSection = () => {
           </h2>
         </div>
 
-        <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {process.steps.map((step, index) => (
             <li
               key={step.title}
-              className="rounded-lg border border-line bg-white p-8 shadow-sm motion-safe:animate-fade-up"
+              className="rounded-lg border border-line bg-paper p-8 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-md motion-safe:animate-fade-up"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                 Step {index + 1}
@@ -35,4 +35,3 @@ export const ProcessSection = () => {
     </section>
   );
 };
-

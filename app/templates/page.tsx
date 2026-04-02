@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LinkedInProfileLink } from "@/components/LinkedInProfileLink";
 import { TemplatesGridSection } from "@/components/TemplatesGridSection";
 import { siteConfig } from "@/data/site";
 
@@ -34,14 +35,19 @@ export default function TemplatesPage() {
                 I can design and build custom templates tailored to your workflow and goals.
               </p>
             </div>
-            <a
-              href={siteConfig.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-md border border-paper bg-paper px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-transparent hover:text-paper"
-            >
-              Contact Me
-            </a>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md border border-paper bg-paper px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-transparent hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper"
+              >
+                Contact Me
+              </a>
+              <LinkedInProfileLink className="inline-flex items-center justify-center rounded-md border border-paper/40 bg-transparent px-8 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-paper transition hover:border-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-paper">
+                View My LinkedIn
+              </LinkedInProfileLink>
+            </div>
           </div>
         </div>
       </section>

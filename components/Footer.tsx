@@ -4,7 +4,7 @@ import { SocialLinks } from "@/components/SocialLinks";
 
 const footerNav = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Projects" },
+  { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
   { href: "/certifications", label: "Certifications" },
   { href: "/about", label: "About" },
@@ -15,10 +15,17 @@ const resourceNav = [
   { href: "/resources", label: "Blogs" },
 ] as const;
 
+/** Set to true when Templates / Blogs are ready to show in the footer again. */
+const showFooterResources = false;
+
 export const Footer = () => {
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 lg:grid-cols-4">
+      <div
+        className={`mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 ${
+          showFooterResources ? "lg:grid-cols-4" : "lg:grid-cols-3"
+        }`}
+      >
         {/* Main column */}
         <div className="space-y-6">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
@@ -38,24 +45,25 @@ export const Footer = () => {
           </ul>
         </div>
 
-        {/* Resources */}
-        <div className="space-y-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-            Resources
-          </p>
-          <ul className="space-y-3">
-            {resourceNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-ink transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {showFooterResources ? (
+          <div className="space-y-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+              Resources
+            </p>
+            <ul className="space-y-3">
+              {resourceNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-ink transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         {/* Contact */}
         <div className="space-y-6">

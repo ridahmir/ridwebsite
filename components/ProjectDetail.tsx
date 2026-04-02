@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { shouldUnoptimizeImageSrc } from "@/lib/imageSrc";
 import type { Project } from "@/data/projects";
 
 type ProjectDetailProps = {
@@ -15,7 +16,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
       <header className="border-b border-line bg-white px-5 py-12 md:px-8 md:py-16">
         <div className="mx-auto max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted motion-safe:animate-fade-up">
-            works
+            Project
           </p>
           <h1 className="mt-4 font-display text-3xl text-ink motion-safe:animate-fade-up motion-safe:[animation-delay:60ms] md:text-4xl lg:text-5xl">
             {project.title}
@@ -112,20 +113,26 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
         </section>
 
         <section className="space-y-6 motion-safe:animate-fade-up">
-          {project.images.map((src, i) => (
-            <div
-              key={src}
-              className="relative aspect-video overflow-hidden rounded-lg border border-line bg-line/40"
-            >
-              <Image
-                src={src}
-                alt={`${project.title} screenshot ${i + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width:768px) 100vw, 720px"
-              />
-            </div>
-          ))}
+          {project.images.map((src, i) => {
+            const unopt = shouldUnoptimizeImageSrc(src);
+            return (
+              <div
+                key={src}
+                className="relative aspect-video overflow-hidden rounded-lg border border-line bg-line/40"
+              >
+                <Image
+                  src={src}
+                  alt={`${project.title} screenshot ${i + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:768px) 100vw, 720px"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  quality={unopt ? undefined : 80}
+                  unoptimized={unopt}
+                />
+              </div>
+            );
+          })}
         </section>
 
         {project.externalUrl ? (
@@ -144,7 +151,7 @@ export const ProjectDetail = ({ project }: ProjectDetailProps) => {
 
         <div className="flex justify-center pt-4 motion-safe:animate-fade-up">
           <Link
-            href="/work"
+            href="/projects"
             className="text-sm font-semibold uppercase tracking-[0.12em] text-ink underline-offset-4 transition hover:text-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             ← Back to all projects

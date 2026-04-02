@@ -16,9 +16,9 @@ export const StatsSection = ({
   const items = useAboutStats
     ? aboutContent.stats
     : [
-        { value: String(siteConfig.stats.customers), label: "Customers" },
-        { value: String(siteConfig.stats.awards), label: "Certificates" },
-        { value: String(siteConfig.stats.projects), label: "Projects" },
+        { value: `${siteConfig.stats.customers}+`, label: "Customers" },
+        { value: `${siteConfig.stats.awards}+`, label: "Certificates" },
+        { value: `${siteConfig.stats.projects}+`, label: "Projects" },
       ];
 
   return (

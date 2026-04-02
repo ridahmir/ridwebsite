@@ -25,6 +25,9 @@ if (major !== 20) {
       "  npm run clean",
       "  npm run dev",
       "",
+      "Faster dev restarts (skip wiping .next):",
+      "  SKIP_DEV_PREP=1 npm run dev",
+      "",
     ].join("\n"),
   );
   process.exit(1);

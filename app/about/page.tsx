@@ -5,6 +5,7 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { EducationSection } from "@/components/EducationSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { AboutLinkedInTrustSection } from "@/components/AboutLinkedInTrustSection";
 import { FAQSection } from "@/components/FAQSection";
 import type { Metadata } from "next";
 
@@ -29,6 +30,7 @@ export default function AboutPage() {
       <SkillsSection />
       <TestimonialsSection bgClassName="bg-paper" />
       <FAQSection bgClassName="bg-white" />
+      <AboutLinkedInTrustSection />
     </>
   );
 }

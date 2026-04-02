@@ -31,6 +31,7 @@ export const AboutHeroSection = () => {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 420px"
               priority
+              quality={85}
             />
           </div>
         </div>

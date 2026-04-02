@@ -75,7 +75,7 @@ export const aboutContent: AboutContent = {
       company: "ETERNA Creative",
       location: "Serbia",
       title: "Bubble.io Specialist",
-      dates: "Nov 2025 - Present",
+      dates: "Nov 2025 - Mar 2026",
       bullets: [
         "Built and optimized no-code web applications across multiple client projects using Bubble’s visual development environment.",
         "Developed and enhanced Bubble-based products, including ProSafeNet and PublicLink platforms.",

@@ -6,153 +6,305 @@ export type ServiceOffering = {
 export type PricingPlan = {
   name: string;
   description: string;
-  priceHint: string;
+  priceLine: string;
+  priceEstimate: string;
+  scopeNote: string;
   features: string[];
-  ctaLabel: string;
+  cta: { label: string; href: string };
 };
+
+export type WhyPoint = {
+  title: string;
+  description: string;
+};
+
+const wa = (phoneDigits: string, text: string) =>
+  `https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`;
+
+/** E.164 digits only; matches siteConfig.phoneTel without + */
+export const servicesWhatsAppDigits = "923305863582";
 
 export const servicesContent = {
   hero: {
-    headline: "I Build High-Quality Websites, MVPs, and Mobile Apps",
+    eyebrow: "Full-stack no-code product builder",
+    headline: "End-to-end products, not just one-off tasks",
     tagline:
-      "Helping businesses and individuals bring their ideas to life with no-code solutions and full-stack expertise.",
-    ctaLabel: "Work With Me",
+      "I help founders and teams ship complete digital products: validated MVPs, polished web apps, and store-ready mobile, designed, built, tested, and launched with a small expert team behind you.",
+    trustLine:
+      "Trusted by founders, startups, and businesses to build scalable digital products.",
+    primaryCta: {
+      label: "Let's Build Your Product",
+      href: wa(
+        servicesWhatsAppDigits,
+        "Hi Ridah, I'd like to discuss building a product end-to-end. Here's a quick overview of what I need:",
+      ),
+    },
+    highlights: [
+      {
+        title: "Ship something users can adopt",
+        body: "Products structured for signup, retention, and the next feature, not a one-off page.",
+      },
+      {
+        title: "Production-minded delivery",
+        body: "Workflows, data, and integrations designed to survive real traffic and real users.",
+      },
+      {
+        title: "One accountable path to launch",
+        body: "Design through stores and deployment, with clear updates and documented handover.",
+      },
+    ],
   },
   about: {
-    title: "About My Services",
+    title: "How I work with you",
     paragraphs: [
-      "I help founders, teams, and businesses ship websites, MVPs, and mobile apps quickly—without compromising quality. My team and I combine no-code speed with full-stack thinking: clean UX, solid data structures, scalable workflows, and production-ready releases.",
-      "From UI/UX design and development to testing, documentation, and publishing, we provide end-to-end delivery so you can focus on your product and customers.",
+      "You get a product partner, not a ticket queue. My team and I take ownership from clarity of goals through launch, so you move from idea to something users can actually adopt, not a fragile demo.",
+      "We combine no-code speed with disciplined structure: clear UX, maintainable data and workflows, integrations that hold up in production, and communication you can plan around.",
     ],
-    toolLine:
-      "Tools I use include Bubble, Webflow, the Vibe Coding tool, Figma, BDK, payment gateways (Stripe/PayPal), deployment tools (Vercel), AI integrations, and more.",
+    trustLine:
+      "Trusted by founders, startups, and businesses to build scalable digital products.",
+    skillsTechnical: [
+      "Bubble",
+      "Webflow",
+      "Cursor",
+      "Vercel",
+      "API integrations",
+      "AI integrations",
+    ],
+    skillsSpecialized: [
+      "Mobile app publishing (BDK)",
+      "App testing & debugging",
+      "In-app purchases",
+      "Performance optimization",
+      "Scalable product architecture",
+    ],
   },
   offerings: [
     {
-      title: "No-Code Web & Mobile App Development",
+      title: "No-code web & mobile products",
       description:
-        "Building websites, MVPs, and mobile apps using modern no-code tools with maintainable architecture and smooth UX.",
+        "Launch a credible product your users can sign up for and pay for: web apps, MVPs, and mobile experiences built on a foundation that will not collapse when you add the next feature.",
     },
     {
-      title: "UI/UX Design",
+      title: "UX that converts and retains",
       description:
-        "Designing intuitive, visually appealing interfaces with thoughtful user flows, spacing, typography, and accessibility.",
+        "Turn confusion into clarity: flows, hierarchy, and interface polish so people understand what to do next and actually complete signup, purchase, or core tasks.",
     },
     {
-      title: "Full App Testing & Documentation",
+      title: "Testing & launch confidence",
       description:
-        "Thorough testing with detailed bug reports, clear reproduction steps, and recommended fixes to reduce launch risk.",
+        "Reduce surprise breakages before go-live with structured QA, documented issues, and fixes, so you ship knowing critical paths work under real use.",
     },
     {
-      title: "BDK Wrapping & Store Publishing",
+      title: "App Store & Play Store delivery",
       description:
-        "Wrapping your app with BDK Native and publishing on Google Play and the Apple App Store with proper store metadata.",
+        "Get from Bubble build to installable apps: BDK wrapping, store requirements, and publishing support so your product is discoverable where your users already are.",
     },
     {
-      title: "In-App Purchase Integration",
+      title: "Monetization that fits your model",
       description:
-        "Adding monetization and subscription flows to mobile apps, aligned with store requirements and best practices.",
+        "Unlock revenue with subscriptions and in-app purchases implemented to align with store rules and your pricing strategy, without blocking your roadmap.",
     },
     {
-      title: "AI Integrations",
+      title: "AI that supports real workflows",
       description:
-        "Adding AI features to enhance app functionality—smart workflows, automation, and helpful user experiences.",
+        "Embed AI where it saves time or improves outcomes: automation, assisted flows, and integrations, without turning your product into a fragile prototype.",
     },
     {
-      title: "Deployment & Maintenance",
+      title: "Deployment, stability & iteration",
       description:
-        "Handling deployment, updates, bug fixes, and ongoing maintenance so your product stays stable and current.",
+        "Keep what you shipped healthy: hosting, updates, fixes, and incremental improvements so your product stays fast, secure, and aligned with how you operate.",
+    },
+    {
+      title: "Workflow automation & integrations",
+      description:
+        "Connect the tools your team already uses so data moves reliably, manual work drops, and operations scale without hiring only for glue work.",
+    },
+    {
+      title: "Product strategy & technical advisory",
+      description:
+        "Make confident build decisions early: scope, stack fit, risks, and a roadmap that balances speed with a foundation you will not regret at v2.",
     },
   ] as ServiceOffering[],
+  whatYouGet: {
+    title: "What You Get",
+    eyebrow: "Outcomes",
+    bullets: [
+      "End-to-end product development from idea to launch",
+      "Clean, scalable, and maintainable architecture",
+      "Fast delivery without compromising quality",
+      "Production-ready applications",
+      "Clear communication and structured workflow",
+      "Documentation and handover so your team can operate the product",
+    ],
+  },
+  useCases: {
+    title: "What I Can Help You Build",
+    eyebrow: "Use cases",
+    items: [
+      "Startup MVPs",
+      "SaaS platforms",
+      "Business automation tools",
+      "Internal dashboards",
+      "Mobile applications",
+      "Client portals & membership sites",
+    ],
+  },
   pricing: {
-    title: "Pricing / Packages",
+    title: "Investment & packages",
     subtitle:
-      "Choose a plan that fits your timeline and scope. If you’re not sure, I’ll recommend the best option after a quick call.",
+      "Every build is scoped to your product, timeline, and risk profile. Below are typical engagement shapes; final pricing is always custom.",
+    scopeBanner:
+      "Custom pricing based on project scope. Estimates below are ballpark starting points, not fixed quotes.",
     plans: [
       {
         name: "Starter",
         description:
-          "Best for landing pages, small websites, or quick MVP validation.",
-        priceHint: "Contact for a custom quote",
+          "Validate an idea or ship a focused web presence without overbuilding.",
+        priceLine: "Estimated from",
+        priceEstimate: "~$1,500 – $4,000 USD",
+        scopeNote: "Scoped to landing pages, small sites, or a tight MVP slice.",
         features: [
-          "Requirements clarification",
-          "UI implementation with clean responsive layout",
-          "Basic integrations (forms, analytics, email)",
-          "Deployment setup",
+          "Discovery: goals, audience, and success metrics",
+          "Responsive UI aligned to your brand",
+          "Essential integrations (forms, analytics, email)",
+          "Deployment you can own or we maintain",
         ],
-        ctaLabel: "Get Started",
+        cta: {
+          label: "Discuss Your Project",
+          href: wa(
+            servicesWhatsAppDigits,
+            "Hi Ridah, I'd like to walk through Starter scope and pricing.",
+          ),
+        },
       },
       {
         name: "Standard",
         description:
-          "Ideal for MVPs with real users, data workflows, and polished UX.",
-        priceHint: "Contact for a custom quote",
+          "Ship a product real users can adopt: workflows, data, and UX that hold up.",
+        priceLine: "Estimated from",
+        priceEstimate: "~$5,000 – $15,000 USD",
+        scopeNote: "Typical for MVPs, customer-facing apps, and operational tools.",
         features: [
-          "End-to-end build in Bubble/Webflow",
-          "UI/UX flow refinement",
-          "Payment integration (Stripe/PayPal) if needed",
-          "Testing + documentation",
-          "Deployment + handover",
+          "Full build in Bubble or Webflow (as fit)",
+          "Workflow and UX refinement for adoption",
+          "Payments (Stripe or PayPal) when revenue is in scope",
+          "QA, documentation, and handover you can rely on",
         ],
-        ctaLabel: "Contact Me",
+        cta: {
+          label: "Discuss Your Project",
+          href: wa(
+            servicesWhatsAppDigits,
+            "Hi Ridah, I need help scoping a Standard-tier engagement.",
+          ),
+        },
       },
       {
         name: "Premium",
         description:
-          "For full products, mobile app publishing, and long-term support.",
-        priceHint: "Contact for a custom quote",
+          "Full product lifecycle: mobile publishing, monetization, and ongoing partnership.",
+        priceLine: "Estimated from",
+        priceEstimate: "~$15,000+ USD",
+        scopeNote: "For mobile, subscriptions, AI, and long-term iteration.",
         features: [
-          "Advanced workflows + scalable data structure",
-          "AI integrations (where applicable)",
-          "BDK wrapping + store publishing",
-          "In-app purchases / subscriptions",
-          "Ongoing maintenance & updates",
+          "Advanced workflows and scalable data design",
+          "AI integrations where they drive measurable value",
+          "BDK wrapping and store publishing",
+          "In-app purchases or subscriptions aligned to stores",
+          "Ongoing maintenance and roadmap support",
         ],
-        ctaLabel: "Work With Me",
+        cta: {
+          label: "Discuss Your Project",
+          href: wa(
+            servicesWhatsAppDigits,
+            "Hi Ridah, I'd like to explore Premium scope and pricing.",
+          ),
+        },
       },
     ] as PricingPlan[],
   },
   why: {
     title: "Why Work With Me",
+    eyebrow: "Trust",
     points: [
       {
-        title: "7+ years in Bubble & no-code development",
+        title: "7+ years building real products",
         description:
-          "Deep platform expertise with a strong eye for structure, scalability, and UX polish.",
+          "Deep experience shipping no-code products that have to work for paying users, not just demos.",
       },
       {
-        title: "Fast delivery, without cutting corners",
+        title: "A team behind faster, better delivery",
         description:
-          "Efficient execution with strong QA—so you ship faster and feel confident in production.",
+          "You benefit from focused specialists when it matters, with one clear lead so nothing falls through the cracks.",
       },
       {
-        title: "End-to-end service",
+        title: "True end-to-end ownership",
         description:
-          "From design to build, testing, publishing, and support—one owner, clear communication.",
+          "Design, build, test, launch, and iterate, with one accountable path from idea to stores and production.",
       },
       {
-        title: "Creative + practical solutions",
+        title: "Mobile publishing expertise (BDK)",
         description:
-          "I balance what’s ideal with what’s realistic, prioritizing outcomes and maintainability.",
+          "From Bubble to installable apps: wrapping, store requirements, and the details that usually slow teams down.",
       },
-    ],
+      {
+        title: "UX and scalable systems in one mindset",
+        description:
+          "Interfaces people understand, backed by structure that will not fight you when you scale features or traffic.",
+      },
+      {
+        title: "Clear communication under pressure",
+        description:
+          "Structured updates, documented decisions, and realistic timelines so stakeholders always know where things stand.",
+      },
+    ] as WhyPoint[],
   },
   process: {
-    title: "Process / How I Work",
+    title: "How we work together",
     steps: [
-      { title: "Consultation", description: "Scope, goals, timeline, and success metrics." },
-      { title: "Design", description: "UI/UX flows, layout, and clickable direction." },
-      { title: "Development", description: "Build with clean structure and reusable components." },
-      { title: "Testing", description: "QA, bug reports, and fixes before launch." },
-      { title: "Deployment", description: "Deploy to production or publish to stores." },
-      { title: "Support", description: "Post-launch maintenance and iterative improvements." },
+      {
+        title: "Discovery",
+        description:
+          "Align on outcomes, constraints, and what “done” means for your users and business.",
+      },
+      {
+        title: "Design direction",
+        description:
+          "Shape flows, hierarchy, and UI so the build phase is efficient and on-brand.",
+      },
+      {
+        title: "Build",
+        description:
+          "Implement with clean structure, reusable patterns, and integration points you can extend.",
+      },
+      {
+        title: "Test & harden",
+        description:
+          "QA, fixes, and documentation so launch day is not the first time you stress-test critical paths.",
+      },
+      {
+        title: "Launch",
+        description:
+          "Deploy or publish to stores with checklists, handover, and go-live support.",
+      },
+      {
+        title: "Support & iterate",
+        description:
+          "Post-launch improvements, maintenance, and roadmap work as your product grows.",
+      },
     ],
   },
   contact: {
-    title: "Contact",
+    title: "Let's Build Your Product",
     subtitle:
-      "Have an idea or an existing product that needs improvement? Let’s build something clean, fast, and production-ready.",
-    primaryCtaLabel: "Get in Touch",
+      "Tell me what you are trying to ship: timeline, audience, and what success looks like. I will respond with honest fit, next steps, and how we can move fast without cutting corners.",
+    panelHeadline: "Let's Build Your Product",
+    workWithMeCta: {
+      label: "Work With Me",
+      href: wa(
+        servicesWhatsAppDigits,
+        "Hi Ridah, I'd like to explore working together on an upcoming build.",
+      ),
+    },
+    emailCtaLabel: "Email me",
   },
-} as const;
-
+};

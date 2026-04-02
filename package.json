@@ -5,9 +5,13 @@
   "scripts": {
     "predev": "node ./scripts/check-node.mjs",
     "prebuild": "node ./scripts/check-node.mjs",
-    "dev": "node ./scripts/free-port.mjs 3000 && next dev -p 3000",
+    "dev": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 0.0.0.0",
+    "dev:turbo": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 0.0.0.0 --turbo",
+    "dev:fast": "node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 0.0.0.0",
+    "dev:clean": "node ./scripts/check-node.mjs && npm run clean && node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 0.0.0.0",
+    "preview": "npm run build && next start -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "next lint",
     "clean": "rm -rf .next node_modules/.cache"
   },

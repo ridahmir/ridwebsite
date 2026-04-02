@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ServicesPageHero } from "@/components/ServicesPageHero";
 import { AboutServicesSection } from "@/components/AboutServicesSection";
 import { ServiceOfferingsSection } from "@/components/ServiceOfferingsSection";
+import { WhatYouGetSection } from "@/components/WhatYouGetSection";
+import { UseCasesSection } from "@/components/UseCasesSection";
 import { PricingSection } from "@/components/PricingSection";
 import { WhyWorkWithMeSection } from "@/components/WhyWorkWithMeSection";
 import { ProcessSection } from "@/components/ProcessSection";
@@ -17,6 +19,8 @@ export default function ServicesPage() {
       <ServicesPageHero />
       <AboutServicesSection />
       <ServiceOfferingsSection />
+      <WhatYouGetSection />
+      <UseCasesSection />
       <PricingSection />
       <WhyWorkWithMeSection />
       <ProcessSection />

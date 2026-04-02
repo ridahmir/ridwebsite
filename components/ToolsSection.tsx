@@ -1,16 +1,20 @@
+import Image from "next/image";
 import { tools } from "@/data/tools";
 
 const ToolLogo = ({ name, logoSrc }: { name: string; logoSrc: string }) => {
   return (
     <div className="flex w-24 flex-none flex-col items-center justify-center gap-2">
-      <div className="flex h-10 w-10 items-center justify-center md:h-12 md:w-12">
-        <img
+      <div className="relative h-10 w-10 md:h-12 md:w-12">
+        <Image
           src={logoSrc}
           alt={name}
           title={name}
+          width={48}
+          height={48}
+          className="object-contain"
           loading="lazy"
-          decoding="async"
-          className="h-full w-full object-contain"
+          sizes="48px"
+          unoptimized
         />
       </div>
       <span className="text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
@@ -61,4 +65,3 @@ export const ToolsSection = () => {
     </section>
   );
 };
-

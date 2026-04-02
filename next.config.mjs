@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remote images for project thumbnails (replace with your own assets in /public anytime)
+  async redirects() {
+    return [
+      { source: "/work", destination: "/projects", permanent: true },
+      { source: "/work/:slug", destination: "/projects/:slug", permanent: true },
+    ];
+  },
   images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    minimumCacheTTL: 60 * 60 * 24 * 7,
     remotePatterns: [
       {
         protocol: "https",
@@ -14,10 +23,6 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-  },
-  webpack: (config, { dev }) => {
-    if (dev) config.cache = false;
-    return config;
   },
 };
 

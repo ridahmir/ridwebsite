@@ -1,252 +1,152 @@
 /**
- * Central project catalogue — edit entries here to update /work and project pages.
- * Swap `coverImage` URLs for files in /public when you have final assets.
+ * Central project catalogue — `/projects` and case study pages.
+ * Replace cover images under /public/projects/ (same filename as `coverFile`) when ready.
  */
 
 export type Project = {
   slug: string;
   title: string;
-  /** Shown on cards and listing */
   shortDescription: string;
-  /** Opening paragraph on detail page */
   description: string;
-  /** Longer editorial block (mirrors Webflow case-study body) */
   longDescription: string;
   client?: string;
   tool: string;
   category: string;
   externalUrl?: string;
-  /** Bullet list under “Features of App” */
+  /** Short stack labels for cards (chips) */
+  stack: string[];
   featureList: string[];
-  /** Structured key features */
   keyFeatures: string[];
-  /** Tech stack bullets */
   technologies: string[];
   roleSummary: string;
-  /** Gallery images — first is often used as cover */
+  /** Paths under /public — first is card cover */
   images: string[];
 };
 
 export const projects: Project[] = [
   {
-    slug: "beccas-list",
-    title: "Beccas List",
+    slug: "prosafenet",
+    title: "ProsafeNet",
     shortDescription:
-      "Directory and listing platform with payments, search, and API integrations.",
+      "Digital safety and compliance-oriented web product for teams managing risk, policy, and operational visibility.",
     description:
-      "I led the entire development process, from translating the client’s vision into a functional design, building all pages and workflows in Bubble, to testing and deploying the live website. I worked closely with the client to ensure all features met their needs and provided training on managing content independently after launch.",
+      "ProsafeNet is a production Bubble application focused on structured data, role-aware views, and integrations that support safety and compliance workflows for organizational users.",
     longDescription:
-      "Beccas List is a beautifully designed, fully responsive web platform built entirely with Bubble.io, a powerful no-code development tool. The site serves as an engaging and user-friendly directory/listing service that helps users discover curated resources and businesses with ease. This project showcases my ability to create visually appealing and highly functional web experiences without writing a single line of code.",
-    client: "Becca Eberhart",
+      "Built end-to-end in Bubble with emphasis on clear information hierarchy, repeatable UI patterns, and workflows that scale as teams add users and policies. Integrations and custom logic keep the product aligned with how real operators work day to day.",
     tool: "Bubble.io",
     category: "Web App",
-    externalUrl: "https://beccaslist.co/",
+    externalUrl: "https://prosafenet.com/",
+    stack: ["Bubble.io", "APIs", "Custom CSS"],
     featureList: [
-      "API Integration",
-      "Advanced Search Filter",
-      "Custom CSS",
-      "Secure Payments",
-      "Responsive Design",
-      "SamCart Integration",
+      "Role-aware screens and data access",
+      "Structured workflows for policy and operations",
+      "Integration-ready architecture",
+      "Responsive layouts for desktop and mobile",
     ],
     keyFeatures: [
-      "Custom User Interface: Designed a clean and intuitive UI that aligns with the client’s branding and target audience.",
-      "Responsive Design: Optimized for desktop, tablet, and mobile devices ensuring seamless user experience across all platforms.",
-      "Dynamic Content Management: Implemented robust database workflows for easy content updating and listing management by the client.",
-      "Interactive Elements: Incorporated smooth animations and hover effects for enhanced engagement.",
-      "SEO Optimization: Structured the site with SEO best practices to improve discoverability and ranking.",
-      "Fast and Reliable: Leveraged Bubble’s infrastructure for quick load times and stability without backend coding.",
+      "Consistent component patterns for faster iteration.",
+      "Database design oriented toward audit-friendly records.",
+      "Performance-conscious page structure for dense data.",
     ],
-    technologies: [
-      "Bubble.io (No-Code Platform)",
-      "Custom CSS & Workflows within Bubble",
-      "Integrated external APIs for data enrichment",
-    ],
+    technologies: ["Bubble.io", "API integrations", "Custom CSS", "Workflow automation"],
     roleSummary:
-      "I led the entire development process, from translating the client’s vision into a functional design, building all pages and workflows in Bubble, to testing and deploying the live website. I worked closely with the client to ensure all features met their needs and provided training on managing content independently after launch.",
-    images: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-    ],
+      "Owned solution design, Bubble implementation, integrations, QA, and launch support.",
+    images: ["/projects/prosafenet-cover.svg"],
   },
   {
-    slug: "lynapay",
-    title: "Lyna Pay Payroll Management Site",
+    slug: "publiclink",
+    title: "PublicLink",
     shortDescription:
-      "Payroll management experience with role-based access and reporting workflows.",
+      "Public-facing digital experience for transparent engagement: clear narrative, trust-led UI, and conversion-minded structure.",
     description:
-      "End-to-end Bubble build for payroll operations: employee records, approvals, and admin dashboards tailored to the client’s process.",
+      "PublicLink (EU) combines polished marketing surfaces with product-minded layout so visitors quickly understand value, credibility, and next steps.",
     longDescription:
-      "Lyna Pay streamlines payroll management through a secure Bubble application with structured data, automated calculations where applicable, and clear navigation for HR teams.",
-    tool: "Bubble.io",
-    category: "Web App",
-    featureList: [
-      "Role-based permissions",
-      "Payroll dashboards",
-      "Data export",
-      "Responsive layouts",
-      "Audit-friendly records",
-    ],
-    keyFeatures: [
-      "Modular page structure for HR and finance teams.",
-      "Reusable UI patterns for faster data entry.",
-      "Workflows aligned with real payroll approval steps.",
-    ],
-    technologies: ["Bubble.io", "Custom CSS", "API Integrations"],
-    roleSummary:
-      "Owned solution design, implementation, QA, and handover documentation for independent content updates.",
-    images: [
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80",
-    ],
-  },
-  {
-    slug: "buyer-folio",
-    title: "Buyer Folio",
-    shortDescription:
-      "Marketing website showcasing product value with conversion-focused sections.",
-    description:
-      "Webflow and no-code tooling combined for a fast, polished marketing site with CMS-managed sections.",
-    longDescription:
-      "Buyer Folio uses a clean narrative layout, strong typography, and CMS-driven case blocks so the team can iterate without developer dependency.",
-    tool: "Bubble.io",
+      "Delivered as a cohesive web experience with emphasis on typography, spacing, and modular sections that the team can evolve. Built for clarity first—supporting campaigns, trust signals, and ongoing content updates without heavy engineering overhead.",
+    tool: "Webflow",
     category: "Website",
+    externalUrl: "https://publiclink.eu/",
+    stack: ["Webflow", "CMS", "Responsive UI"],
     featureList: [
-      "CMS-friendly structure",
-      "Responsive marketing sections",
-      "Lead capture flows",
-      "Performance-conscious assets",
+      "Modular marketing sections",
+      "CMS-driven content blocks",
+      "Mobile-first layout and typography",
+      "Performance-minded asset structure",
     ],
     keyFeatures: [
-      "Brand-aligned component system.",
-      "Editor-friendly content model.",
-      "Mobile-first spacing and typography.",
+      "Editor-friendly structure for non-developers.",
+      "Brand-aligned component rhythm across pages.",
+      "Clear CTAs and scannable long-form content.",
     ],
-    technologies: ["Bubble.io", "Webflow", "Custom CSS"],
+    technologies: ["Webflow", "Figma-to-build handoff", "Custom CSS", "SEO-friendly markup"],
     roleSummary:
-      "Built page templates, interactions, and publishing workflow for ongoing marketing updates.",
-    images: [
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1200&q=80",
-    ],
-  },
-  {
-    slug: "venue-hub-my",
-    title: "Venue Hub Malaysia",
-    shortDescription:
-      "Venue discovery and booking flows for the Malaysian market.",
-    description:
-      "Bubble web app connecting users with venues: search, filters, and detail pages optimized for mobile traffic.",
-    longDescription:
-      "Venue Hub Malaysia focuses on discovery UX—fast filters, rich media, and clear CTAs—so users can shortlist venues efficiently.",
-    tool: "Bubble.io",
-    category: "Web App",
-    featureList: [
-      "Advanced filters",
-      "Listing detail pages",
-      "Mobile-optimized UI",
-      "Saved favorites",
-    ],
-    keyFeatures: [
-      "Search tuned for real venue attributes.",
-      "Consistent card system across listing and detail views.",
-      "Lightweight animations for feedback without clutter.",
-    ],
-    technologies: ["Bubble.io", "API Integrations", "Custom CSS"],
-    roleSummary:
-      "Delivered discovery flows, admin tools for listings, and launch support.",
-    images: [
-      "https://images.unsplash.com/photo-1519167758481-83f29da1c1c8?w=1200&q=80",
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80",
-    ],
-  },
-  {
-    slug: "humanize",
-    title: "Humanize Platform",
-    shortDescription:
-      "Platform experience focused on engagement, profiles, and structured content.",
-    description:
-      "A Bubble application emphasizing human-centered UI patterns and scalable database design.",
-    longDescription:
-      "Humanize brings together profiles, content modules, and messaging-adjacent flows in a cohesive product shell built for iteration.",
-    tool: "Bubble.io",
-    category: "Web App",
-    featureList: [
-      "User profiles",
-      "Content modules",
-      "Notification-style updates",
-      "Responsive product UI",
-    ],
-    keyFeatures: [
-      "Reusable components for rapid feature rollout.",
-      "Clear information hierarchy for dense data.",
-      "Accessibility-minded contrast and tap targets.",
-    ],
-    technologies: ["Bubble.io", "No-code/Low-code Development", "Custom CSS"],
-    roleSummary:
-      "Partnered on product structure, built core screens, and iterated with stakeholder feedback.",
-    images: [
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
-    ],
+      "Structured the site system, built core templates, and documented update paths for the client team.",
+    images: ["/projects/publiclink-cover.svg"],
   },
   {
     slug: "sentieri",
-    title: "Sentieri Hybrid Therapy Site",
+    title: "Sentieri",
     shortDescription:
-      "Therapy practice site with calm visuals, services, and booking-oriented CTAs.",
+      "Calm, credible web presence for a hybrid therapy practice: services, story, and gentle motion that supports—not distracts.",
     description:
-      "Hybrid therapy positioning with trustworthy copy blocks, service explainers, and contact pathways.",
+      "Sentieri balances warmth and professionalism with editorial layouts, accessible contrast, and booking-oriented pathways suited to healthcare-adjacent positioning.",
     longDescription:
-      "Sentieri balances warmth and clarity: service breakdowns, practitioner story, and gentle motion for a professional healthcare-adjacent brand.",
-    tool: "Bubble.io",
-    category: "Web App",
+      "The site prioritizes trust: readable service explainers, practitioner narrative, and restrained motion. Built for long-form content and future iteration as offerings evolve.",
+    tool: "Webflow",
+    category: "Website",
+    externalUrl: "https://sentieri.me/",
+    stack: ["Webflow", "Bubble.io", "Custom CSS"],
     featureList: [
-      "Service pages",
-      "Trust-building content blocks",
+      "Service and story-driven pages",
       "Contact and intake CTAs",
-      "Responsive typography",
+      "Responsive typography and spacing",
+      "Subtle, accessible motion",
     ],
     keyFeatures: [
-      "Editorial layout for long-form therapy content.",
-      "Subtle motion that supports—not distracts—from the message.",
+      "Healthcare-adjacent tone and layout discipline.",
+      "Content blocks that scale as services grow.",
+      "Fast, maintainable style system.",
     ],
-    technologies: ["Bubble.io", "Webflow", "Custom CSS"],
+    technologies: ["Webflow", "Bubble.io", "Custom CSS"],
     roleSummary:
-      "Implemented site structure, styling, and client training for ongoing edits.",
-    images: [
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&q=80",
-    ],
+      "Implemented structure, visual system, interactions, and handover for ongoing edits.",
+    images: ["/projects/sentieri-cover.svg"],
   },
   {
-    slug: "portfolio",
-    title: "Portfolio Website",
+    slug: "cega-pay",
+    title: "Cega Pay",
     shortDescription:
-      "Landing experience highlighting services, work, and social proof.",
+      "Payroll operations product on Bubble: structured records, role-based access, and admin workflows tuned to real HR processes.",
     description:
-      "Portfolio and landing page system showcasing projects, testimonials, and services in a single scroll narrative.",
+      "Cega Pay streamlines payroll management through secure data modeling, approvals-oriented flows, and dashboards that keep finance and HR aligned.",
     longDescription:
-      "This portfolio pattern—hero, services, selected work, stats, and testimonials—was translated into a maintainable component set for fast updates.",
+      "Focused on operational clarity: repeatable UI for data entry, exports where needed, and permissions that reflect how teams actually approve and audit payroll activity.",
     tool: "Bubble.io",
-    category: "Landing Page",
+    category: "Web App",
+    externalUrl: "https://cega-pay.bubbleapps.io/version-test/",
+    stack: ["Bubble.io", "Workflows", "APIs"],
     featureList: [
-      "Hero and services bands",
-      "Project grid",
-      "Testimonials",
-      "FAQ-ready structure",
+      "Role-based permissions",
+      "Payroll dashboards and records",
+      "Data export patterns",
+      "Audit-friendly structure",
     ],
     keyFeatures: [
-      "Modular sections for repeat use across campaigns.",
-      "Performance-minded image handling patterns.",
+      "Workflows aligned with approval steps.",
+      "Reusable UI for high-volume data tasks.",
+      "Scalable database patterns for growth.",
     ],
-    technologies: ["Bubble.io", "Webflow", "No-code/Low-code Development"],
+    technologies: ["Bubble.io", "Custom CSS", "API integrations"],
     roleSummary:
-      "Designed layout system, built interactions, and documented content update paths.",
-    images: [
-      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&q=80",
-    ],
+      "Led build, testing, and documentation for independent operation and iteration.",
+    images: ["/projects/cega-pay-cover.svg"],
   },
 ];
 
 export const getProjectBySlug = (slug: string): Project | undefined =>
   projects.find((p) => p.slug === slug);
 
-export const homePreviewSlugs = ["beccas-list", "lynapay", "venue-hub-my"] as const;
+/** Home grid preview — three of four featured builds */
+export const homePreviewSlugs = ["prosafenet", "publiclink", "sentieri"] as const;
+
+export const linkedinProjectsUrl =
+  "https://www.linkedin.com/in/ridahefatima/details/projects/" as const;
