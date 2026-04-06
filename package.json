@@ -3,21 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node ./scripts/check-node.mjs",
-    "prebuild": "node ./scripts/check-node.mjs",
-    "dev": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 0.0.0.0",
-    "dev:turbo": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 0.0.0.0 --turbo",
-    "dev:fast": "node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 0.0.0.0",
-    "dev:clean": "node ./scripts/check-node.mjs && npm run clean && node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 0.0.0.0",
-    "preview": "npm run build && next start -p 3000",
-    "build": "next build",
-    "start": "next start -p 3000",
-    "lint": "next lint",
-    "clean": "rm -rf .next node_modules/.cache"
+    "predev": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; node ./scripts/check-node.mjs",
+    "prebuild": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; node ./scripts/check-node.mjs",
+    "dev": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; node ./scripts/print-preview-hint.mjs && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 127.0.0.1",
+    "dev:port": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 127.0.0.1",
+    "dev:fresh": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 127.0.0.1",
+    "dev:turbo": "node ./scripts/print-preview-hint.mjs && node ./scripts/free-port.mjs 3000 && node ./scripts/prep-dev.mjs && next dev -p 3000 -H 127.0.0.1 --turbo",
+    "dev:fast": "node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 127.0.0.1",
+    "dev:clean": "node ./scripts/check-node.mjs && npm run clean && node ./scripts/free-port.mjs 3000 && next dev -p 3000 -H 127.0.0.1",
+    "preview": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; npm run build && next start -p 3000 -H 127.0.0.1",
+    "build": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; next build",
+    "start": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; next start -p 3000",
+    "lint": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; next lint",
+    "clean": "export PATH=\"/opt/homebrew/opt/node@20/bin:$PATH\"; rm -rf .next node_modules/.cache"
   },
   "engines": {
     "node": ">=20 <21",
     "npm": ">=10"
+  },
+  "volta": {
+    "node": "20.20.2",
+    "npm": "10.8.2"
   },
   "dependencies": {
     "next": "^14.2.18",

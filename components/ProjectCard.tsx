@@ -8,7 +8,7 @@ type ProjectCardProps = {
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
-  const cover = project.images[0] ?? "/projects/prosafenet-cover.svg";
+  const cover = project.images[0] ?? "/projects/prosafenet-hero.png";
   const unoptimized = shouldUnoptimizeImageSrc(cover);
 
   return (

@@ -6,10 +6,10 @@ import { execFileSync } from "node:child_process";
  * Wipe `.next` before `next dev` so the server never requires missing webpack chunks
  * (e.g. Cannot find module './520.js' after edits or interrupted compiles).
  *
- * Runs on every `npm run dev`. Skip with: SKIP_DEV_PREP=1 npm run dev
- * Faster restarts without wipe: npm run dev:fast
- * Nuclear reset: npm run dev:clean (also clears node_modules/.cache)
- * Default `npm run dev` uses webpack + host 0.0.0.0. Optional: npm run dev:turbo
+ * Used by `npm run dev:fresh` and `npm run dev:turbo` (before next dev).
+ * Default `npm run dev` does NOT wipe .next (better Cursor preview / HMR).
+ * Nuclear reset: npm run dev:clean
+ * Skip this script: SKIP_DEV_PREP=1 npm run dev:fresh
  */
 if (process.env.SKIP_DEV_PREP === "1") {
   process.exit(0);
